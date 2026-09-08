@@ -1,5 +1,19 @@
 {
-  "name": "analyst-mcp-server",
-  "description": "MCP server for functional analysis capabilities",
-  "version": "1.0.0"
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.morteza-azizi/analyst-mcp-server",
+  "title": "Analyst MCP Server",
+  "description": "MCP server for functional analysis of business requirements.",
+  "version": "1.0.0",
+  "websiteUrl": "https://github.com/morteza-azizi/apicenter-asset-poc",
+  "repository": {
+    "url": "https://github.com/morteza-azizi/apicenter-asset-poc",
+    "source": "github",
+    "subfolder": "mcp/analyst"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://analyst-mcp.example.com/mcp"
+    }
+  ]
 }
