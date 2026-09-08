@@ -1,6 +1,7 @@
 ---
 name: functional-analysis
-description: Analyze business requirements and produce a structured functional analysis covering scope, actors, functional requirements, use cases, business rules, inputs, outputs, assumptions, dependencies, and open questions.
+description: Analyze business requirements and produce a structured functional analysis covering scope, actors, functional requirements, use cases, business rules, inputs, outputs, assumptions, dependencies, and open questions. Use when the user provides business requirements, user stories, process descriptions, stakeholder needs, or discovery notes.
+compatibility: Analysis-only. No runtime packages, network access, or production-system credentials required.
 ---
 
 # Functional Analysis Skill
@@ -157,8 +158,13 @@ Prioritize questions that could materially change:
 
 ### 10. Produce the functional analysis
 
-Use the following structure where applicable:
+Keep every section in the template below. If a section has no source support, keep the heading and state that it has not been defined.
 
+Use `Confirmed` only for requirements and rules supported by the source information.
+
+Use this structure:
+
+````markdown
 # Functional Analysis
 
 ## Objective
@@ -188,8 +194,6 @@ If exclusions are not known, state that they have not been defined.
 | ID | Requirement | Status |
 |---|---|---|
 | FR-001 | The system shall ... | Confirmed |
-
-Use `Confirmed` for requirements supported by the source information.
 
 ## Use cases
 
@@ -234,6 +238,7 @@ List known dependencies.
 ## Summary
 
 Provide a concise summary of the functional scope, the most important requirements, and the major unresolved areas.
+````
 
 ## Example
 
@@ -243,25 +248,90 @@ Provide a concise summary of the functional scope, the most important requiremen
 
 ### Expected analysis
 
-#### Actors
+```markdown
+# Functional Analysis
 
-- Customer
-- Customer Service Employee
+## Objective
 
-#### Functional requirements
+Allow customers to submit a request online, have a customer service employee decide on it, and notify the customer of the result by email.
 
-- FR-001: The system shall allow a customer to submit a request online.
-- FR-002: The system shall allow a customer service employee to review a submitted request.
-- FR-003: The system shall allow the employee to approve or reject the request.
-- FR-004: The system shall notify the customer of the decision by email.
+## Scope
 
-#### Open questions
+### In scope
 
-- What information must the customer provide?
-- What validation rules apply to the request?
-- Who is authorized to approve or reject requests?
-- What happens when a request is rejected?
-- What email content is required?
+- Customer submits a request online
+- Customer service employee reviews, approves, or rejects the request
+- Customer is notified of the decision by email
+
+### Out of scope
+
+Not defined in the source.
+
+## Actors and stakeholders
+
+| Actor / Stakeholder | Role |
+|---|---|
+| Customer | Submits the request and receives the decision |
+| Customer service employee | Reviews the request and approves or rejects it |
+
+## Functional requirements
+
+| ID | Requirement | Status |
+|---|---|---|
+| FR-001 | The system shall allow a customer to submit a request online. | Confirmed |
+| FR-002 | The system shall allow a customer service employee to review a submitted request. | Confirmed |
+| FR-003 | The system shall allow the employee to approve or reject the request. | Confirmed |
+| FR-004 | The system shall notify the customer of the decision by email. | Confirmed |
+
+## Use cases
+
+### UC-001 — Submit and decide a customer request
+
+- Actor: Customer; customer service employee
+- Trigger: Customer submits a request online
+- Main outcome: Customer receives an approve or reject decision by email
+- Main flow: Customer submits request → employee reviews request → employee approves or rejects → customer is notified by email
+- Alternative / exception flows: Not defined. See open questions for rejection handling.
+
+## Business rules
+
+| ID | Rule | Status |
+|---|---|---|
+| BR-001 | A customer service employee may approve or reject a submitted request. | Confirmed |
+
+## Inputs and outputs
+
+### Inputs
+
+- Customer request submitted online
+
+### Outputs
+
+- Approval or rejection decision
+- Email notification of the decision to the customer
+
+## Assumptions
+
+- "Online" means a digital channel available to the customer; the specific channel is not stated.
+
+## Dependencies
+
+- An email capability to notify the customer of the decision
+
+## Open questions
+
+| ID | Question | Impact |
+|---|---|---|
+| OQ-001 | What information must the customer provide with the request? | High |
+| OQ-002 | What validation rules apply to the request? | High |
+| OQ-003 | Who is authorized to approve or reject requests? | High |
+| OQ-004 | What happens when a request is rejected? | Medium |
+| OQ-005 | What email content is required? | Medium |
+
+## Summary
+
+Customers submit requests online. A customer service employee reviews each request and approves or rejects it, and the customer is notified by email. Request content, validation, authorization, rejection handling, and email content are unresolved.
+```
 
 ## Error handling and ambiguity
 
