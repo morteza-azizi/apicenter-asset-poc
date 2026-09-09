@@ -1,7 +1,14 @@
 ---
-name: functional-analysis
+name: io.github.morteza-azizi/functional-analysis
+title: Functional Analysis
 description: Analyze business requirements and produce a structured functional analysis covering scope, actors, functional requirements, use cases, business rules, inputs, outputs, assumptions, dependencies, and open questions. Use when the user provides business requirements, user stories, process descriptions, stakeholder needs, or discovery notes.
+version: 1.0.0
 compatibility: Analysis-only. No runtime packages, network access, or production-system credentials required.
+websiteUrl: https://github.com/morteza-azizi/apicenter-asset-poc
+repository:
+  url: https://github.com/morteza-azizi/apicenter-asset-poc
+  source: github
+  subfolder: skills/functional-analysis
 ---
 
 # Functional Analysis Skill
@@ -164,7 +171,7 @@ Use `Confirmed` only for requirements and rules supported by the source informat
 
 Use this structure:
 
-````markdown
+```
 # Functional Analysis
 
 ## Objective
@@ -238,8 +245,8 @@ List known dependencies.
 ## Summary
 
 Provide a concise summary of the functional scope, the most important requirements, and the major unresolved areas.
-````
 
+```
 ## Example
 
 ### Input
@@ -248,7 +255,7 @@ Provide a concise summary of the functional scope, the most important requiremen
 
 ### Expected analysis
 
-```markdown
+```
 # Functional Analysis
 
 ## Objective
@@ -331,8 +338,8 @@ Not defined in the source.
 ## Summary
 
 Customers submit requests online. A customer service employee reviews each request and approves or rejects it, and the customer is notified by email. Request content, validation, authorization, rejection handling, and email content are unresolved.
-```
 
+```
 ## Error handling and ambiguity
 
 If the provided requirements are incomplete, contradictory, or ambiguous:
